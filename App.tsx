@@ -3,14 +3,14 @@ import { PointerProvider } from './components/PointerContext';
 import { Cursor } from './components/Cursor';
 import { MagneticItem } from './components/MagneticItem';
 import { CursorRegion } from './components/CursorRegion';
-import { 
-  AppWindow, 
-  MessageSquare, 
-  Music, 
-  Settings, 
-  Camera, 
-  Mail, 
-  Map as MapIcon, 
+import {
+  AppWindow,
+  MessageSquare,
+  Music,
+  Settings,
+  Camera,
+  Mail,
+  Map as MapIcon,
   Calendar,
   Search,
   ChevronRight,
@@ -42,7 +42,7 @@ const SectionHeader: React.FC<{ title: string; description: string }> = ({ title
 const AppContent: React.FC = () => {
   return (
     <div className="min-h-screen w-full bg-[#0f0f11] flex flex-col items-center relative font-sans pb-16 overflow-x-hidden">
-      
+
       {/* Background decoration */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         <div className="absolute top-[-10%] left-[-10%] w-[60%] h-[60%] rounded-full bg-indigo-900/10 blur-[120px]" />
@@ -50,20 +50,20 @@ const AppContent: React.FC = () => {
       </div>
 
       <div className="z-10 w-full max-w-4xl px-6 pt-12 flex flex-col gap-8">
-        
+
         {/* Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto">
-          <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white/60 tracking-tight">
-            iOS Pointer Guidelines
+          <h1 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-b from-white to-white tracking-tight">
+            iPadOS Pointer Reproducing
           </h1>
-          <p className="text-base text-neutral-400 font-medium">
+          <p className="text-base text-neutral-400 font-medium text-balance">
             Interactive playground demonstrating the adaptive pointer behavior defined in Apple's Human Interface Guidelines.
           </p>
 
           {/* References - Moved Here */}
           <div className="flex flex-wrap justify-center gap-4 pt-2">
              <MagneticItem variant="highlight" borderRadius={8} className="px-3 py-1.5" hitAreaPadding={5}>
-               <a 
+               <a
                  href="https://examples.motion.dev/react/ios-pointer?utm_source=embed&is_plus=true"
                  target="_blank"
                  rel="noopener noreferrer"
@@ -73,7 +73,7 @@ const AppContent: React.FC = () => {
                </a>
              </MagneticItem>
              <MagneticItem variant="highlight" borderRadius={8} className="px-3 py-1.5" hitAreaPadding={5}>
-               <a 
+               <a
                  href="https://developer.apple.com/design/human-interface-guidelines/pointing-devices"
                  target="_blank"
                  rel="noopener noreferrer"
@@ -87,22 +87,22 @@ const AppContent: React.FC = () => {
 
         {/* GUIDELINE SECTIONS */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          
+
           {/* 1. BUTTONS: HIGHLIGHT VS LIFT */}
           <div className="bg-neutral-800/20 backdrop-blur-2xl rounded-3xl p-6 border border-white/5">
-            <SectionHeader 
-              title="Highlight vs. Lift" 
+            <SectionHeader
+              title="Highlight vs. Lift"
               description="Use 'Highlight' for transparent elements. Use 'Lift' for opaque elements."
             />
             <div className="flex flex-col gap-6 items-center justify-center min-h-[140px] bg-neutral-900/30 rounded-2xl border border-white/5 p-6">
-              
+
               {/* Highlight Example (Toolbar) */}
               <div className="flex items-center gap-3 p-1.5 rounded-xl bg-neutral-800/50 border border-white/5">
                 {[Bold, Italic, Underline].map((Icon, i) => (
-                  <MagneticItem 
-                    key={i} 
-                    variant="highlight" 
-                    className="w-9 h-9 text-neutral-300 rounded-lg" 
+                  <MagneticItem
+                    key={i}
+                    variant="highlight"
+                    className="w-9 h-9 text-neutral-300 rounded-lg"
                     borderRadius={8}
                     hitAreaPadding={5}
                   >
@@ -130,15 +130,15 @@ const AppContent: React.FC = () => {
 
           {/* 2. TEXT INTERACTION */}
           <div className="bg-neutral-800/20 backdrop-blur-2xl rounded-3xl p-6 border border-white/5">
-            <SectionHeader 
-              title="Text Selection" 
+            <SectionHeader
+              title="Text Selection"
               description="Over text regions, the pointer transforms into a vertical I-beam for precise placement."
             />
             <div className="min-h-[140px] flex items-center bg-neutral-900/30 rounded-2xl border border-white/5 p-6">
               <CursorRegion type="text">
                 <p className="text-neutral-300 text-base leading-relaxed selection:bg-blue-500/30">
-                  The <span className="text-blue-400 font-semibold">adaptive pointer</span> maintains context. 
-                  When hovering over non-interactive text, it becomes an I-beam. 
+                  The <span className="text-blue-400 font-semibold">adaptive pointer</span> maintains context.
+                  When hovering over non-interactive text, it becomes an I-beam.
                   <br/>
                   <span className="text-xs text-neutral-500 mt-2 block">Try selecting this text to see the native behavior simulation.</span>
                 </p>
@@ -148,8 +148,8 @@ const AppContent: React.FC = () => {
 
           {/* 3. LISTS & REGIONS */}
           <div className="bg-neutral-800/20 backdrop-blur-2xl rounded-3xl p-6 border border-white/5">
-             <SectionHeader 
-              title="List Highlighting" 
+             <SectionHeader
+              title="List Highlighting"
               description="For lists, the pointer often acts as a highlight for the entire row."
             />
             <div className="bg-neutral-900/30 rounded-2xl border border-white/5 overflow-hidden">
@@ -159,8 +159,8 @@ const AppContent: React.FC = () => {
                   { label: 'Bluetooth', value: 'On', icon: Music },
                   { label: 'Display', value: '', icon: AppWindow },
                 ].map((item, i) => (
-                  <MagneticItem 
-                    key={i} 
+                  <MagneticItem
+                    key={i}
                     variant="highlight"
                     className="w-full flex items-center justify-between p-3 rounded-xl text-neutral-200 group transition-colors"
                     borderRadius={12}
@@ -172,7 +172,7 @@ const AppContent: React.FC = () => {
                       </div>
                       <span className="font-medium text-sm">{item.label}</span>
                     </div>
-                    <div className="flex items-center gap-2 text-neutral-500">
+                    <div className="flex items-center gap-2 text-neutral-500 ml-2">
                       <span className="text-xs">{item.value}</span>
                       <ChevronRight size={14} />
                     </div>
@@ -184,15 +184,15 @@ const AppContent: React.FC = () => {
 
           {/* 4. HOVER (LARGE ELEMENTS) */}
           <div className="bg-neutral-800/20 backdrop-blur-2xl rounded-3xl p-6 border border-white/5">
-            <SectionHeader 
-              title="Hover (Large Elements)" 
+            <SectionHeader
+              title="Hover (Large Elements)"
               description="For large cards, we scale the element slightly to indicate interactivity without shape morphing."
             />
             <div className="flex flex-col gap-4">
                {/* Large Card using 'Hover' variant */}
-               <MagneticItem 
-                  variant="hover" 
-                  className="w-full h-44 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-2xl border border-white/5 p-5 flex items-start gap-4 overflow-hidden relative group" 
+               <MagneticItem
+                  variant="hover"
+                  className="w-full h-44 bg-gradient-to-br from-indigo-500/10 to-purple-500/10 rounded-2xl border border-white/5 p-5 flex items-start gap-4 overflow-hidden relative group"
                   borderRadius={16}
                >
                   <div className="w-14 h-14 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shrink-0 shadow-lg">
@@ -210,17 +210,17 @@ const AppContent: React.FC = () => {
 
         {/* Footer Dock Area */}
         <div className="mt-4 flex flex-col items-center gap-6 w-full">
-           <div 
+           <div
             className="w-full max-w-sm h-11 bg-neutral-800/40 backdrop-blur-xl rounded-xl flex items-center px-2 gap-1 text-neutral-400 border border-neutral-700/50 shadow-2xl"
            >
               <MagneticItem variant="highlight" className="w-8 h-8 text-neutral-400" borderRadius={8} hitAreaPadding={4}>
                 <Search size={16} />
               </MagneticItem>
-              
+
               <CursorRegion type="text" className="flex-1 h-full flex items-center px-2">
                  <span className="text-sm font-medium text-neutral-500">Spotlight Search</span>
               </CursorRegion>
-              
+
               <MagneticItem variant="highlight" className="w-8 h-8" borderRadius={8} hitAreaPadding={4}>
                 <div className="flex gap-0.5">
                    <div className="w-1 h-1 rounded-full bg-neutral-500"></div>
@@ -233,18 +233,18 @@ const AppContent: React.FC = () => {
           {/* Dock */}
           <div className="flex items-end gap-2.5 px-3 pb-3 pt-3 bg-white/10 backdrop-blur-2xl rounded-[28px] border border-white/10 shadow-2xl shadow-black/80">
             {DOCK_ITEMS.map((item, i) => (
-              <MagneticItem 
-                key={i} 
+              <MagneticItem
+                key={i}
                 variant="lift"
                 className="relative z-20"
                 borderRadius={16}
                 hitAreaPadding={8} // 8px padding + 8px neighbor padding > 10px gap. Ensures continuous sticky cursor.
               >
                 <div className={`w-[52px] h-[52px] ${item.gradient} ${item.iconColor} rounded-[14px] flex items-center justify-center shadow-lg relative overflow-hidden group`}>
-                  
+
                   {/* Inner highlight/reflection for that "squarcle" shine */}
                   <div className="absolute inset-0 bg-gradient-to-b from-white/20 to-transparent opacity-50 pointer-events-none" />
-                  
+
                   <item.icon size={26} className="fill-current opacity-90 relative z-10" strokeWidth={2} />
                 </div>
               </MagneticItem>
