@@ -1,0 +1,5 @@
+{
+  "name": "iOS Pointer Reproduction",
+  "description": "A high-fidelity reproduction of the iOS/iPadOS pointer interaction system using React, Tailwind CSS, and Framer Motion. Features magnetic snapping, shape morphing, and parallax effects.",
+  "requestFramePermissions": []
+}
